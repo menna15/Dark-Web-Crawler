@@ -26,18 +26,18 @@ with Controller.from_port(port=9051) as controller:
     # Set the controller password
     controller.authenticate(password='manona')
     # Set the starting URL
-    url = "http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion"
-    # url = "https://stackoverflow.com/questions"
-
+    # url = "http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion"   ## lockBit
+    url = "http://ransomwr3tsydeii4q43vazm7wofla5ujdajquitomtd47cxjtfgwyyd.onion/"    ## Ransomware Group Sites
+ 
     # Initialize the visited set and the link queue
     visited = set()
     queue = [url]
 
     # Get the list of keywords to search for
     # keywords = input('Enter a list of keywords to search for, separated by commas: ').split(',')
+
     # Set the new IP address
     controller.signal(Signal.NEWNYM)
-
     # Crawl the links
     while queue:
         # Get the next link in the queue
