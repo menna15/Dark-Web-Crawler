@@ -3,8 +3,10 @@
 ````
 sudo apt install tor
 ````
-
-
+## Install obfs4proxy
+````
+sudo apt install obfs4proxy
+````
 ## Add briges
 - from https://bridges.torproject.org/
 - choose obsf4
@@ -16,23 +18,24 @@ ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 Bridge obfs4 "bridge"
 ````
 
-# hash password
+## Hash password
 - run in terminal
 ````
 tor --hash-password "pass"
 ````
+and copy the hashed password.
 
-## Uncomment 
+## Uncomment those line in /etc/tor/torrc
 - controlport
 - socks
 - Hashedpassword ( and add the hashed password)
 
-## run tor in terminal
+## Run tor in terminal
 ````
 tor
 ````
 
-## run the crawler code
+## Run the crawler code
 ````
 python crawler.py
 ````
