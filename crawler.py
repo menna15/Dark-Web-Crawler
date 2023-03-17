@@ -8,15 +8,15 @@ import os
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
-    'https': 'socks5h://127.0.0.1:9050'
+    'https': 'socks5h://127.0.0.1:9051'
 }
 
 # Set the number of links to crawl
-num_links_to_crawl = 50
+num_links_to_crawl = 5#0
 
 # Set the user agent to use for the request
 
-user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0'
+user_agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/110.0'
 
 # Set the headers for the request
 headers = {'User-Agent': user_agent}
@@ -24,10 +24,10 @@ headers = {'User-Agent': user_agent}
 # Initialize the controller for the Tor network
 with Controller.from_port(port=9051) as controller:
     # Set the controller password
-    controller.authenticate(password='manona')
+    controller.authenticate(password="Nada")
     # Set the starting URL
-    # url = "http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion"   ## lockBit
-    url = "http://ransomwr3tsydeii4q43vazm7wofla5ujdajquitomtd47cxjtfgwyyd.onion/"    ## Ransomware Group Sites
+    url = "https://www.example.com/"   ## lockBit http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion
+    # url = "http://ransomwr3tsydeii4q43vazm7wofla5ujdajquitomtd47cxjtfgwyyd.onion/"    ## Ransomware Group Sites
  
     # Initialize the visited set and the link queue
     visited = set()
@@ -50,9 +50,12 @@ with Controller.from_port(port=9051) as controller:
 
         # Send the request to the URL
         try:
+            print(link)
             response = requests.get(link,proxies=proxies)
+            print(response)
         except:
             continue
+
 
         
         # Parse the response
