@@ -6,12 +6,13 @@ import time
 import pymongo
 from pymongo import MongoClient
 from selenium.webdriver.support.wait import WebDriverWait
+from datetime import datetime
 
 client = MongoClient("mongodb://raghad:ra123@ac-nmbm3el-shard-00-00.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-01.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-02.gqycpcd.mongodb.net:27017/?ssl=true&replicaSet=atlas-zstffa-shard-0&authSource=admin&retryWrites=true&w=majority")
 db = client.DataScience
 collection = db.lockbit
 
-binary = '../tor-browser/Browser/firefox'
+binary = '../../Downloads/tor-browser/Browser/firefox'
 # the location of firefox package inside Tor
 if os.path.exists(binary) is False:
     raise ValueError("The binary path to Tor firefox does not exist.")
@@ -45,6 +46,8 @@ for item in items:
     liks_list.append(url+link)
 
 print(len(liks_list))   
+# get the urrent time
+now = datetime.now()
 
 for link in liks_list:
     # to make sure the page is loaded
@@ -58,11 +61,18 @@ for link in liks_list:
         deadline=deadline.replace("Deadline: ","")
         company_name=browser.find_elements_by_class_name("post-big-title")[0].text
         connect=browser.find_elements_by_class_name("desc")[0].text
+        ispublished=browser.find_elements_by_class_name("danger")[0].text
+        ispublished= ispublished=="All available data published !"
         # remove any <br> and \n in connect
         connect=connect.replace("<br>","")
         print(deadline,company_name,connect)
+        print("##########",ispublished)
+        # check if the link in the coluction if yes then updated the published status and the last seen time
+        if collection.find_one({"link":link}):
+            collection.update_one({"link":link},{"$set":{"ispublished":ispublished,"last_seen":now}})
+            continue
         # insert into mongodb
-        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link})
+        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished})
     except:
         continue    
 
