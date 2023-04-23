@@ -1,5 +1,6 @@
 # import from selenium
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.firefox.options import Options
 from selenium import webdriver
 import os
 import time
@@ -12,7 +13,7 @@ client = MongoClient("mongodb://raghad:ra123@ac-nmbm3el-shard-00-00.gqycpcd.mong
 db = client.DataScience
 collection = db.lockbit
 
-binary = '../../Downloads/tor-browser/Browser/firefox'
+binary = '/home/nada/Downloads/tor-browser/Browser/firefox'
 # the location of firefox package inside Tor
 if os.path.exists(binary) is False:
     raise ValueError("The binary path to Tor firefox does not exist.")
@@ -27,10 +28,12 @@ def get_browser(binary=None,options=None):
     return browser
 
 browser = None
-browser = get_browser(binary=firefox_binary)
+options = Options()
+options.add_argument('-headless')
+browser = get_browser(binary=firefox_binary, options=options)
 
 # click on connect to connect the tor browser to the remote nodes
-browser.find_element_by_xpath('//*[@id="connectButton"]').click()
+browser.find_element("xpath", '//*[@id="connectButton"]').click()
 time.sleep(3)
 
 # check my IP address
@@ -38,7 +41,7 @@ url='http://lockbitapt6vx57t3eeqjofwgcglmutr3a35nygvokja5uuccip4ykyd.onion'
 browser.get(url)
 #time.sleep(15)
 # get attribute onclick value
-items = WebDriverWait(browser, timeout=30).until(lambda d: d.find_elements_by_class_name("post-block")) #browser.find_elements_by_class_name("post-block")
+items = WebDriverWait(browser, timeout=30).until(lambda d: d.find_elements("class name", "post-block")) #browser.find_elements("class name", "post-block")
 liks_list=[]
 for item in items:
     attribute_val=item.get_attribute("onclick")
@@ -54,14 +57,14 @@ for link in liks_list:
     #time.sleep(10)
     try:
         browser.get(link)
-        deadline=items = WebDriverWait(browser, timeout=30).until(lambda d: d.find_elements_by_class_name("post-banner-p")) #browser.find_elements_by_class_name("post-block")
-#browser.find_elements_by_class_name("post-banner-p")[0].text
+        deadline=items = WebDriverWait(browser, timeout=30).until(lambda d: d.find_elements("class name", "post-banner-p")) #browser.find_elements("class name", "post-block")
+        #browser.find_elements("class name", "post-banner-p")[0].text
         deadline=deadline[0].text
         # remove Deadline: from deadline
         deadline=deadline.replace("Deadline: ","")
-        company_name=browser.find_elements_by_class_name("post-big-title")[0].text
-        connect=browser.find_elements_by_class_name("desc")[0].text
-        ispublished=browser.find_elements_by_class_name("danger")[0].text
+        company_name=browser.find_elements("class name", "post-big-title")[0].text
+        connect=browser.find_elements("class name", "desc")[0].text
+        ispublished=browser.find_elements("class name", "danger")[0].text
         ispublished= ispublished=="All available data published !"
         # remove any <br> and \n in connect
         connect=connect.replace("<br>","")
