@@ -8,7 +8,7 @@ import pymongo
 from pymongo import MongoClient
 from selenium.webdriver.support.wait import WebDriverWait
 from datetime import datetime
-from Bing.example import get_revenue
+from Bing.example import get_revenue_sector
 
 client = MongoClient("mongodb://raghad:ra123@ac-nmbm3el-shard-00-00.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-01.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-02.gqycpcd.mongodb.net:27017/?ssl=true&replicaSet=atlas-zstffa-shard-0&authSource=admin&retryWrites=true&w=majority")
 db = client.DataScience
@@ -76,7 +76,7 @@ for link in liks_list:
             collection.update_one({"link":link},{"$set":{"ispublished":ispublished,"last_seen":now}})
             continue
         # insert into mongodb
-        revenue=get_revenue(link+" revenue")
+        revenue=get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to" + link + "company? and what is its avarge revenue?")
         collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished,"revenue":revenue})
     except:
         continue    
