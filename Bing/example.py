@@ -18,8 +18,24 @@ import re
 #         cookielib = http.cookiejar
 # cookies = cookielib.MozillaCookieJar('cookies.txt')
 # cookies.load()
+
+# on Menna's labtop
+cookies = {"MUID": "36533E0BFC73660837DF2EDEFD60673E", 
+           "SRCHD": "AF=NOFORM", 
+           "SRCHUID": "V=2&GUID=63146FDF79814B3FBDDA486DBF992A32&dmnchg=1", 
+           "WLS": "C=2e95e26610e79c36&N=menna", 
+           "_U": "1a_cnPsFS5Z3LmoGprrYsPO7I7swSXl3r_t9-OyVa6f9dN4vuByXGINRbvaaRCqoxRyJtk6EzoDaQSOnkNjD1RKcGaystR0zpEDF_D7AVc2K7OokUSP6HZ7x9TcF4T28s_3dq5uDuDcETU34KuT0yXxGCJLnQlX5FhlHgkAsjRE_1NF3tw_MvNm2Q_p_lg08GIQbdXXMCsX2AwVhAeBma7Q", 
+           "ANON": "A=1C4E503CAC95368D687D21F1FFFFFFFF&E=1c45&W=1", 
+           "NAP": "V=1.9&E=1beb&C=4SHWNUJxivzlp9OdZKzevcW0eXmqjZ4fr5oQKxwREUflDlu_XEhkDQ&W=1", 
+           "SRCHS": "PC=U531", 
+           "SRCHUSR": "DOB=20200826&T=1682701848000", 
+           "_SS": "SID=2D2D30899052639814AF238891E062EB&PC=U531&R=6&RB=6&GB=0&RG=0&RP=6", 
+           "ipv6": "hit=1682705456915&t=4", 
+           "dsc": "order=News", 
+           "_RwBf": "ilt=1&ihpd=0&ispd=1&rc=6&rb=6&gb=0&rg=0&pc=6&mtu=0&rbb=0.0&g=0&cid=&clo=0&v=10&l=2023-04-28T07:00:00.0000000Z&lft=0001-01-01T00:00:00.0000000&aof=0&o=0&p=BINGCOPILOTWAITLIST&c=MR000T&t=5215&s=2023-04-08T22:18:52.2187144+00:00&ts=2023-04-28T17:11:03.7554341+00:00&rwred=0&wls=2&lka=0&lkt=0&TH=&mta=0&e=uqYF2LMKTf1wiFdMJ67eKPmdt51Hhs-teAChzivwc5FekJDluSc_iZi3UODvIV7TwG1z3tOhZEsrhMOzM0apSrt8-SazoA4ELqafHxVHmB0&A=", 
+           "SRCHHPGUSR": "BRW=NOTP&BRH=M&CW=460&CH=736&SCW=1164&SCH=3217&DPR=1.3&UTC=120&DM=1&SRCHLANG=en&PV=14.0.0&HV=1682701866&PRVCW=711&PRVCH=736&EXLTT=8&THEME=1"}
 # on nada's labtop 
-cookies = {"MUID":"33C8D4C434DD67652E86C6C735A1660B","SRCHD":"AFNOFORM","SRCHUID":"V2&GUIDB0B7AAE05A2F4BBEA04920F71CE62D49&dmnchg1","MMCASM":"ID89FDFF3D72B94BF4B09B3707A5BE4ADD","ANON":"A6E488C976FA144D042EE83B0FFFFFFFF&E1c3e&W2","NAP":"V1.9&E1bdb&CyJddsyGFiWw5aNq4Ys9xBAHRjKV0KgUGcC_x40UFJx7S-lTdTbwHEQ&W2","_clck":"w12vib|1|fb2|0","_BINGNEWS":"SW1294&SH649","_clsk":"z270s7|1682451257904|1|0|o.clarity.ms/collect","_UR":"QS0&TQS0","_HPVN":"CSeyJQbiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiUCJ9LCJTYyI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiSCJ9LCJReiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiVCJ9LCJBcCI6dHJ1ZSwiTXV0ZSI6dHJ1ZSwiTGFkIjoiMjAyMy0wNC0yNVQwMDowMDowMFoiLCJJb3RkIjowLCJHd2IiOjAsIkRmdCI6bnVsbCwiTXZzIjowLCJGbHQiOjAsIkltcCI6Mn0","MicrosoftApplicationsTelemetryDeviceId":"c5abfcd0-6b3b-407e-bf13-496d828f7879","WLS":"C4ddb7eb0669548ea&NNada","_U":"1pDDKzachLCnbydbHiusBWe1-8CHW0mAyFWp-w3cCLSV4e6sEvaXSg1XNz_m8sLAUpFQ6WV3IVYZLzGP-lCXD3XL8hZEamm4Rovq1qMnO-nA1JMdDjW-lA6oZdsZETEyYu4o4LdlaJERTJF2QMwPyoDwQERLNn5VTGDzXG375VQHdDWWOIwbtg2WgxU3-nG60HtNFr4NfrOhUmqjf8oRDtehoQFN0qEgOYrtVdc0k0sI","ABDEF":"V13&ABDV13&MRNB1682509595197&MRB0","SRCHUSR":"DOB20220817&T1682509601000","_RwBf":"ilt1&ihpd0&ispd1&rc69&rb69&gb0&rg0&pc69&mtu0&rbb0.0&g0&cid&clo0&v3&l2023-04-26T07:00:00.0000000Z&lft0001-01-01T00:00:00.0000000&aof0&o0&pBINGCOPILOTWAITLIST&cMR000T&t211&s2023-04-21T20:08:16.8834563+00:00&ts2023-04-26T11:46:43.1380360+00:00&rwred0&wls2&lka0&lkt0&TH&mta0&esFNaluWPZ8-kRnduaPnY7Wl8i2QfW7F_ZLsfMOV2QaXL5aIVNh5db_bM4qgT_cX86NL55pNtUBpY8VzeBdxV7g&A","_SS":"SID0A6DD1A01BF4638B15B0C35F1A8862FB&R69&RB69&GB0&RG0&RP69","dsc":"orderNews","ipv6":"hit1682513205965&t4","SRCHHPGUSR":"SRCHLANGen&PV15.0.0&BRWXW&BRHM&CW1496&CH796&SCW1204&SCH316&DPR1.0&UTC120&DM1&EXLTT32&HV1682509608&WTS63817704304&PRVCW1496&PRVCH796&THEME1&THThHalo"}
+# cookies = {"MUID":"33C8D4C434DD67652E86C6C735A1660B","SRCHD":"AFNOFORM","SRCHUID":"V2&GUIDB0B7AAE05A2F4BBEA04920F71CE62D49&dmnchg1","MMCASM":"ID89FDFF3D72B94BF4B09B3707A5BE4ADD","ANON":"A6E488C976FA144D042EE83B0FFFFFFFF&E1c3e&W2","NAP":"V1.9&E1bdb&CyJddsyGFiWw5aNq4Ys9xBAHRjKV0KgUGcC_x40UFJx7S-lTdTbwHEQ&W2","_clck":"w12vib|1|fb2|0","_BINGNEWS":"SW1294&SH649","_clsk":"z270s7|1682451257904|1|0|o.clarity.ms/collect","_UR":"QS0&TQS0","_HPVN":"CSeyJQbiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiUCJ9LCJTYyI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiSCJ9LCJReiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiVCJ9LCJBcCI6dHJ1ZSwiTXV0ZSI6dHJ1ZSwiTGFkIjoiMjAyMy0wNC0yNVQwMDowMDowMFoiLCJJb3RkIjowLCJHd2IiOjAsIkRmdCI6bnVsbCwiTXZzIjowLCJGbHQiOjAsIkltcCI6Mn0","MicrosoftApplicationsTelemetryDeviceId":"c5abfcd0-6b3b-407e-bf13-496d828f7879","WLS":"C4ddb7eb0669548ea&NNada","_U":"1pDDKzachLCnbydbHiusBWe1-8CHW0mAyFWp-w3cCLSV4e6sEvaXSg1XNz_m8sLAUpFQ6WV3IVYZLzGP-lCXD3XL8hZEamm4Rovq1qMnO-nA1JMdDjW-lA6oZdsZETEyYu4o4LdlaJERTJF2QMwPyoDwQERLNn5VTGDzXG375VQHdDWWOIwbtg2WgxU3-nG60HtNFr4NfrOhUmqjf8oRDtehoQFN0qEgOYrtVdc0k0sI","ABDEF":"V13&ABDV13&MRNB1682509595197&MRB0","SRCHUSR":"DOB20220817&T1682509601000","_RwBf":"ilt1&ihpd0&ispd1&rc69&rb69&gb0&rg0&pc69&mtu0&rbb0.0&g0&cid&clo0&v3&l2023-04-26T07:00:00.0000000Z&lft0001-01-01T00:00:00.0000000&aof0&o0&pBINGCOPILOTWAITLIST&cMR000T&t211&s2023-04-21T20:08:16.8834563+00:00&ts2023-04-26T11:46:43.1380360+00:00&rwred0&wls2&lka0&lkt0&TH&mta0&esFNaluWPZ8-kRnduaPnY7Wl8i2QfW7F_ZLsfMOV2QaXL5aIVNh5db_bM4qgT_cX86NL55pNtUBpY8VzeBdxV7g&A","_SS":"SID0A6DD1A01BF4638B15B0C35F1A8862FB&R69&RB69&GB0&RG0&RP69","dsc":"orderNews","ipv6":"hit1682513205965&t4","SRCHHPGUSR":"SRCHLANGen&PV15.0.0&BRWXW&BRHM&CW1496&CH796&SCW1204&SCH316&DPR1.0&UTC120&DM1&EXLTT32&HV1682509608&WTS63817704304&PRVCW1496&PRVCH796&THEME1&THThHalo"}
 # on raghed's labtop 
 # cookies = {
 #     'MUID': '3BA8B12BB7CC6D58391DA00FB6B06C29',
@@ -74,8 +90,31 @@ def get_revenue_sector(ask):
     except:
         print("bing didn't return an acceptable answer (compilation error)")
     return revenue, sector
-     
 
-ans = get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to spoormaker.co.za company? and what is its avarge revenue?")
+def get_region(question):
+    command = ai.BingPython.sendcom_sydney(ai.BingPython.CreateSession(cookies), question)
+    answer=asyncio.get_event_loop().run_until_complete(command)
+    print(answer)  
 
-print(ans)
+    # regex : 
+    result = re.search(r"(located .*\.)", answer, re.IGNORECASE)
+    if result:
+        return result.group(0)
+    else:
+        return None
+
+def get_year_of_foundation(question):
+    command = ai.BingPython.sendcom_sydney(ai.BingPython.CreateSession(cookies), question)
+    answer=asyncio.get_event_loop().run_until_complete(command)
+    print(answer)
+    # regex : was \w+ in (\d){4}
+    result = re.search(r"(in \d{4})", answer, re.IGNORECASE)
+    if result:
+        return result.group(0)
+    else:
+        return None
+
+# ans = get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to r-pac.com company? and what is its avarge revenue?")
+# ans = get_region("in what country is kaycan.com comapny located ? reply in one word")
+# ans = get_year_of_foundation("when was regaltax.us comapny founded?")
+# print(ans)

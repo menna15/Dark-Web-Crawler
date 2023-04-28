@@ -8,13 +8,13 @@ import pymongo
 from pymongo import MongoClient
 from selenium.webdriver.support.wait import WebDriverWait
 from datetime import datetime
-from Bing.example import get_revenue_sector
+from Bing.example import get_revenue_sector, get_region, get_year_of_foundation
 
 client = MongoClient("mongodb://raghad:ra123@ac-nmbm3el-shard-00-00.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-01.gqycpcd.mongodb.net:27017,ac-nmbm3el-shard-00-02.gqycpcd.mongodb.net:27017/?ssl=true&replicaSet=atlas-zstffa-shard-0&authSource=admin&retryWrites=true&w=majority")
 db = client.DataScience
 collection = db.lockbit
 
-binary = '/home/nada/Downloads/tor-browser/Browser/firefox'
+binary = 'D:\\Downloads\\Tor Browser\\Browser\\firefox.exe'
 # the location of firefox package inside Tor
 if os.path.exists(binary) is False:
     raise ValueError("The binary path to Tor firefox does not exist.")
@@ -77,7 +77,10 @@ for link in liks_list:
             continue
         # insert into mongodb
         revenue=get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to" + link + "company? and what is its avarge revenue?")
-        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished,"revenue":revenue})
+        region = get_region("in what country is " + link + " comapny located ? reply in one word")
+        year_of_foundation = get_year_of_foundation("when was " + link + "comapny founded?")
+        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished,"revenue":revenue,"region":region,"year_of_foundation":year_of_foundation})
+
     except:
         continue    
 
