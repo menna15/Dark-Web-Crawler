@@ -76,10 +76,10 @@ for link in liks_list:
             collection.update_one({"link":link},{"$set":{"ispublished":ispublished,"last_seen":now}})
             continue
         # insert into mongodb
-        revenue=get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to" + link + "company? and what is its avarge revenue?")
+        revenue, sector=get_revenue_sector("(industrial goods and services, technology, construction and materials, travel and leisure, healthcare) from these sectors could you tell me which sector is most related to" + link + "company? and what is its avarge revenue?")
         region = get_region("in what country is " + link + " comapny located ? reply in one word")
         year_of_foundation = get_year_of_foundation("when was " + link + "comapny founded?")
-        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished,"revenue":revenue,"region":region,"year_of_foundation":year_of_foundation})
+        collection.insert_one({"deadline":deadline,"company_name":company_name,"connect":connect,"link":link,"last_seen":now,"source":"lockbit","ispublished":ispublished,"revenue":revenue,"sector":sector,"region":region,"year_of_foundation":year_of_foundation})
 
     except:
         continue    
